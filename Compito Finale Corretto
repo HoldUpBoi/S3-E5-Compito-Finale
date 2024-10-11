@@ -1,0 +1,42 @@
+import datetime
+
+def assistente_virtuale(comando):
+    if comando == "Qual è la data di oggi?":
+
+        oggi = datetime.date.today()
+        risposta = "La data di oggi è " + oggi.strftime("%d/%m/%Y")
+
+    elif comando == "Che ore sono?":
+
+        ora_attuale = datetime.datetime.now().time()
+        risposta = "L'ora attuale è " + ora_attuale.strftime("%H:%M")
+
+    elif comando == "Come ti chiami?":
+
+        risposta = "Mi chiamo Assistente Virtuale"
+
+    elif comando == "Aiuto":
+
+        risposta = "I comandi disponibili sono:\n1) Qual è la data di oggi?\n2) Che ore sono?\n3) Come ti chiami?\n4) Esci"
+        return risposta
+
+    else:
+
+        risposta = "Non ho capito la tua domanda."
+
+    return risposta
+
+
+while True:
+
+    comando_utente = input("Cosa vuoi sapere? \n(Scrivere <Aiuto> per una lista di comandi disponibili)\n")
+
+    if comando_utente.lower() == "esci":
+
+        print("Arrivederci!")
+        break
+
+    else:
+
+        print(assistente_virtuale(comando_utente))
+
